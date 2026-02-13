@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine ❤️</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(rgba(255,120,150,0.55), rgba(255,120,150,0.55)),
+            url('sunflower.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: fadeUp 1.2s ease;
+    }
+    h1 { margin-top: 0; font-size: 26px; }
+    p { font-size: 15px; line-height: 1.7; }
+    .btn {
+      margin: 10px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #ff5a8a;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+    .hidden { display: none; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>  <!-- Musik -->  <audio id="music" autoplay loop>
+    <source src="heaven-bryan-adams.mp3" type="audio/mpeg">
+  </audio>  <!-- Halaman 1 -->  <div class="card" id="page1">
+    <h1>Hai Nadyra Cantiku 🤍</h1>
+    <p>Aku punya satu pertanyaan penting buat kamu…</p>
+    <button class="btn" onclick="goToPage2()">Lanjut 💌</button>
+  </div>  <!-- Halaman 2 -->  <div class="card hidden" id="page2">
+    <h1>Will you be my Valentine? 💕</h1>
+    <button class="btn" onclick="yesAnswer()">Yes 💖</button>
+    <button class="btn" onclick="noAnswer()">No 🙈</button>
+  </div>  <!-- Halaman 3 -->  <div class="card hidden" id="page3">
+    <img src=kita.jpg" alt="Foto Kita Berdua" style="width:100%; border-radius:16px; margin-bottom:6px; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+    <p style="font-size:13px; opacity:0.9; margin-bottom:18px; font-style:italic;">our favorite moment 🤍</p>
+    <h1>Happy Valentine’s Day Sayang 🤍</h1>
+    <p>
+      hhaappiiestt valentineeee dayyss sayyanggkku 💕 mmaakkassiii yyaakkk ccannttiikkuuu uuddahh mauuu nerimmaa akkuu, uddahh mauuu teteepp miliihh akkuu dann bertahannn sammaaa akuu.
+      <br><br>
+      akkuuu gaaa nyangkkaa kkitta suuddahh samppaaiii dii titikkk iniiii. akkuu tauuu perjalanaannn kiittaa ggaaaa semmuuddahh yyaangg kkittaaa kkiirraa.
+      <br><br>
+      ssemmooggaa hubungannn kiittaa iniii kedepannn nyyaa lleebbiihhh bbaaiikk daannn lleebbihhh bagguuss. akkuuu berrtteriimmaa kkasiiihh bangett sammaa sayyaang suuddahh banguunn hubungann iniii sammaa sammaaa akuu.
+      <br><br>
+      beruntunggg bangeettt punyyaa kkaamuu sayyaangg. kkiittaa teruussiiinn samppaaiii selamaaa llaammaa nyaa yaaa sayyaangg. kitaa pertahaniiinn yyaaa sayyaangg.
+      <br><br>
+      akkuuu sayyyaanggg bangettt sammaa kkaamuu ccannttiikkuuu. i loveee u, i lloovveee u sooo mmuucchh ssaayyaangg 🤍🤍 i lloovveee u in anytimmeee, i lloovvee u alwayyss saayyaang.
+    </p>
+  </div>  <script>
+    function goToPage2() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+    function yesAnswer() {
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page3').classList.remove('hidden');
+    }
+    function noAnswer() {
+      alert('Hehehe, nggak bisa nolak yaa 😜💕');
+    }
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  </script></body>
+</html>
